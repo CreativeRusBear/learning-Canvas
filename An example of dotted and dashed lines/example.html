@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dots and dashes lines</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        var canvas =document.getElementById("canvas"),
+            ctx = canvas.getContext("2d");
+        window.onload = function () {
+            ctx.translate(0.5,0.5);
+
+            //draw the circle
+            ctx.beginPath();
+            ctx.setLineDash([3]);
+            ctx.arc(60,60,50, 0, 2*Math.PI, false);
+            ctx.stroke();
+
+            //draw the rectangle
+            ctx.beginPath();
+            ctx.setLineDash([5,2]);
+            ctx.rect(120, 10, 100, 100);
+            ctx.stroke();
+
+            //draw the triangle
+            ctx.beginPath();
+            ctx.moveTo(320,10);
+            ctx.setLineDash([1,2]);
+            ctx.lineTo(370, 110);
+            ctx.lineTo(270,110);
+            ctx.closePath();
+            ctx.stroke();
+
+            // Draw the irregular shape
+            ctx.beginPath();
+            ctx.fillStyle = '#eee';
+            ctx.setLineDash([10]);
+            ctx.moveTo(460,115);
+            ctx.lineTo(475,95);
+            ctx.lineTo(505,15);
+            ctx.lineTo(545,65);
+            ctx.lineTo(545,115);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>
