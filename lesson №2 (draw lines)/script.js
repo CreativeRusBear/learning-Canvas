@@ -1,7 +1,7 @@
 let canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
 
-window.onload = () => {
+window.onload = function() {
   //начать новый путь (будут применяться новые настройки)
   ctx.beginPath();
   ctx.strokeStyle="red";

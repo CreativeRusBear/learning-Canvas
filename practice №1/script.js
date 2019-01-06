@@ -1,6 +1,6 @@
-let canvas = document.getElementById("canvas"),
-    ctx = canvas.getContext("2d");
-const widthCanvas = canvas.offsetWidth,
+const canvas = document.getElementById("canvas"),
+      ctx = canvas.getContext("2d"),
+      widthCanvas = canvas.offsetWidth,
       heightCanvas = canvas.offsetHeight;
 
 ctx.fillStyle = "grey";
