@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle Animation</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas'),
+              ctx = canvas.getContext('2d');
+        let x=10,
+            y=10,
+            gameEngine;
+        function drawRect() {
+            ctx.clearRect(0,0,500,500);
+            ctx.fillStyle='green';
+            ctx.fillRect(x,y, 50,50);
+        };
+
+        let requestAnimFrame=(function () {
+            return  window.requestAnimationFrame       ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame    ||
+                    window.oRequestAnimationFrame      ||
+                    window.msRequestAnimationFrame     ||
+                    function(callback){
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+        })();
+
+        let gameEngineStart=callback=>{
+            gameEngine=callback;
+            gameEngineStep();
+        };
+
+        let gameEngineStep=()=>{
+            gameEngine();
+            requestAnimFrame(gameEngineStep)
+        };
+        let renderer = ()=>{
+            drawRect();
+            x+=1;
+        };
+
+        gameEngineStart(renderer);
+    </script>
+</body>
+</html>
